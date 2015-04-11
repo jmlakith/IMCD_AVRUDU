@@ -254,23 +254,6 @@
 				
 				
 				}
-				
-				
-				#result{
-				
-				position:relative;
-				z-index:2000;
-				background-color:#3333CC;
-				display:none;
-				color:white;
-				width:relative;
-				height:150px;
-				padding:20px;
-				
-				
-				
-				
-				}
 			
 		/* newEdit */
 		
@@ -361,22 +344,22 @@
 	   </div>
 	   
 	   <div id="info2" style="display:none;" >
-	   <div   class="alert alert-success"  role="alert"><b> කාලය අවන්සන් වෙන්ට පෙර 3 වරක් Click කරන්න  </b></div></div>
+	   <div   class="alert alert-success"  role="alert"> කාලය අවන්සන් වෙන්ට පෙර 3 වරක් Click කොරන්ට </div></div>
 	   
 	   <div id="info3" style="display:none;" >
-	   <div   class="alert alert-success"  role="alert"><b>  වෑයම අසාර්ථකයි ... </b> </div>
+	   <div   class="alert alert-success"  role="alert">  වෑයම අසාර්ථකයි ...  </div>
 	   </div>
 	   
 	   <div id="info4" style="display:none;" >
-	   <div   class="alert alert-info"  role="alert"><b>  එක් වෑයමක් සාර්ථකයි </b></div>
+	   <div   class="alert alert-info"  role="alert">  එක් වෑයමක් සාර්ථකයි </div>
 	   </div>
 	   
 	   <div id="info5" style="display:none;" >
-	   <div   class="alert alert-info"  role="alert"> <b>ඔබේ වෑයම් තුනම සාර්ථකයි .. අඩුම කාලෙකින් සම්පුර්ණ කල කෙනා ජයග්‍රාහකයා වෙයි .</b></div>
+	   <div   class="alert alert-info"  role="alert"> ඔබේ වෑයම් තුනම සාර්ථකයි .. අඩුම කාලෙකින් සම්පුර්ණ කල කෙනා ජයග්‍රාහකයා වෙයි .</div>
 	   </div>
 	   
 	   <div id="info6" style="display:none;" >
-	   <div   class="alert alert-info"  role="alert"><b> ම් ....  කණගාටුයි , දිනුම ඔබෙන් ගිලිහී ගියා ,  කණාමුට්ටි ගැසුවාට ඔබට ස්තුතියි ! </b></div>
+	   <div   class="alert alert-info"  role="alert"> ම් ....  කණගාටුයි , දිනුම ඔබෙන් ගිලිහී ගියා ,  කනාමුට්ටි ගැසුවාට ඔබට ස්තුතියි !</div>
 	   </div>
 	   
 	   
@@ -418,7 +401,7 @@
 	
 	<div class="col-sm-12">
 	
-			<table border="1"  style=" width:100%;color:white; border:2px white solid;">
+			<table border="0"  style=" width:100%;color:white; border:2px white solid;">
 			
 <tr>
 
@@ -512,14 +495,6 @@
 	</div>
 	
 	</div>
-	
-	<div id="result" class="row" >
-	
-		 <h2 align="center" > TEST</h2>
-	
-	</div>
-	
-	
     <div class="row"  id="panel2" style="color:black;background-image:url('img/mainCover1.jpg');" >
 		<div class="col-sm-1">
             <div id="droppable" class="ui-widget-header">
@@ -628,7 +603,7 @@
 <script>
 
 
-			var clickCount=2;
+			var clickCount=3;
 			var y=0;
 			
 			
@@ -636,19 +611,15 @@
            $(document).ready(function(){
 		   
 		   
-			var rnd1=rndGen();
+			/*var rnd1=rndGen();
 			var rnd2=rndGen();
-			var rnd3=rndGen();
+			var rnd3=rndGen();*/
 			
-			
-			//use below for testing;
-			/*
 			var rnd1=1;
 			var rnd2=2;
 			var rnd3=3;
-			*/
 		   
-			
+			//var y=0;
 		   
 		   
 			var x=0;
@@ -685,40 +656,46 @@
 			
 			
 			//var clickCount=3;
-			var successCount=1;
+			
 			 $("td").click(function(){
 			 
-				//Main Check whether Win or loose;
-				
 			 
-				
-				//attempt board;
-				if(clickCount==2){
+			 
+			 
+				//score board;
+				if(clickCount==3){
 				
 					
 					$("#attempt1").removeClass("label label-success");
 					$("#attempt1").addClass("label label-danger");
 					clickCount--;
 				}else
-				if(clickCount==1){
+				if(clickCount==2){
 					
 					$("#attempt2").removeClass("label label-success");
 					$("#attempt2").addClass("label label-danger");
 					
 					clickCount--;
 				}else
-				if(clickCount==0 ||successCount!=0 ){
+				if(clickCount==1){
 					
 					$("#attempt3").removeClass("label label-success");
 					$("#attempt3").addClass("label label-danger");
 					
+					clickCount--;
+				}else if(clickCount==0 || y==0 ){
+				
 					
-					
-					
-					$("#result").slideDown(1000).html("<h3 align='center'> කණගාටුයි ,  දිනුම ඔබෙන් ගිලිහී ගියා ,  කණාමුට්ටි ගැසුවාට ඔබට ස්තුතියි !  </h3>");
+					/*Thnx for playn*/
+					$('#info1').hide();
+					$('#info2').hide();
+					$('#info3').hide();
+					$('#info4').hide();
+					$('#info5').hide();
+					$('#info6').show();
 					
 					$('.logo').hide();
-					y=0;
+					
 					
 					
 					
@@ -727,34 +704,14 @@
 				}
 				
 				
+				//score board end;
 				
 				
 				
-				
-				//attempt board end;
-				
-		
+				//Main Check whether Win or loose;
+				var successCount=0;
 				
 				if(successCount>2){
-				
-				/*
-				
-				//////////////////////////////
-				
-							AJAX REQUEST							
-				
-				///////////////////////////////
-				
-				
-				
-				
-				
-				*/
-				
-				
-				
-				
-				
 					
 						/*Target completed within*/
 						$('#info1').hide();
@@ -762,15 +719,12 @@
 						$('#info3').hide();
 						$('#info4').hide();
 						$('#info5').show();
-						$("#result").slideDown(1000).html("<h3 align='center'>ඔබේ වෑයම් තුනම සාර්ථකයි .. අඩුම කාලෙකින් සම්පුර්ණ කල කෙනා ජයග්‍රාහකයා වේ . </h3>");
-						y=0;
 					
 					}
 				
 				else if( $(this).attr("id")==rnd1 || $(this).attr("id")==rnd2 || $(this).attr("id")==rnd3 ){
 				
-					successCount++;
-					
+					++successCount;
 					$('#info1').hide();
 					$('#info2').hide();
 					$('#info3').hide();
@@ -783,7 +737,7 @@
 				
 				}
 				
-				else if( $(this).attr("id")!=rnd1 || $(this).attr("id")!=rnd2 || $(this).attr("id")!=rnd3 ){
+				else if(clickCount!=0){
 				
 				
 					$('#info1').hide();
@@ -792,7 +746,7 @@
 					$('#info5').hide();
 					$('#info3').show();
 					
-					
+					successCount++;
 				
 				
 				
